@@ -26,8 +26,15 @@ public class AppTest
     public void checkUrl() {
         assertEquals(driver.getCurrentUrl(), "https://www.ranorex.com/web-testing-examples/vip/");
     }
-    @Test
-    public void userCreation() throws InterruptedException {
+    @Test(enabled=false)
+       public void loadData() {
+           WebElement loadButton = driver.findElement(By.id("Load"));
+           loadButton.click();
+     WebElement loadFirstName = driver.findElement(By.xpath("//*[@id=\"VIPs\"]/tbody/tr[2]/td[2]"));
+     assertEquals(loadFirstName, "Will");
+      }
+    @Test(enabled=false)
+    public void userCreation() {
         WebElement firstNameField = driver.findElement(By.id("FirstName"));
         firstNameField.click();
         firstNameField.sendKeys("Will");
@@ -36,10 +43,10 @@ public class AppTest
         lastNameField.sendKeys("Smith");
         WebElement buttonAdd = driver.findElement(By.id("Add"));
         buttonAdd.click();
-        Thread.sleep(1000);
+       // Thread.sleep(1000);// Знаю, что не надо так делать, но это для теста:)
         WebElement addedFirstName = driver.findElement(By.xpath("//*[@id=\"VIPs\"]/tbody/tr[2]/td[2]"));
         assertEquals(addedFirstName, "Will");
-    }
+           }
    @AfterTest
    public void tearDown() {
       driver.quit();
