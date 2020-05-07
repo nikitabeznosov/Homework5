@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Functional" parallel="false">
-    <test name="Search">
+    <test name="Actions">
         <classes>
-            <class name="org.atqc.AppTest"/>
+            <class name="org.atqc.Actions"/>
+            <class name="org.atqc.Windows"/>
         </classes>
     </test>
 </suite>
